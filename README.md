@@ -70,6 +70,11 @@ $ tail -100f ews/logs/catalina.out
 $ tail -100f ews/logs/ranger-admin-*.log
 
 # Access ranger admin ui, go to http://localhost:6080 and add some policies, user/password = admin/YourPassword@123456. Test some APIs
+# Configure policy with
+
+policy.download.auth.users=<your_user>
+tag.download.auth.users=<your_user>
+
 $ curl -ivk -H "Content-type:application/json" -u admin:YourPassword@123456 -X GET "http://localhost:6080/service/plugins/policies" # to get all policies
 $ curl -ivk -H "Content-type:application/json" -u admin:YourPassword@123456 -X GET "http://localhost:6080/service/plugins/policies/download/dev_hive" # to get specific policy by service name
 
