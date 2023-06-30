@@ -1,6 +1,17 @@
 
 # Installation on MacOS M1/M2
 
+Build with
+
+| Component   | Version      |
+| ----------- | ------------ |
+| MySQL       | 8.0.33       |
+| Java        | OpenJDK-8-jdk|
+| Python      | 2.7.18       |
+| Maven       | 3.6.3        |
+| Ranger      | 2.0.0        |
+| Solr        | 5.2.1        |
+
 ## Ranger Admin
 
 ```bash
