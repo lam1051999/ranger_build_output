@@ -1,5 +1,7 @@
 
-# Installation on MacOS M1/M2
+# Ranger installation on MacOS M1/M2
+
+## Build
 
 Build with
 
@@ -12,12 +14,33 @@ Build with
 | Ranger      | 2.0.0        |
 | Solr        | 5.2.1        |
 
+Build process
+
+```bash
+# Install MySQL
+$ brew install mysql
+$ brew services start mysql
+
+# Install Java: https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html (this jdk run on Intel chip, so you also need to install Rosetta 2)
+
+# Install Python 2.7.18
+$ brew install pyenv # and follow instructions to finish the installation
+$ pyenv install 2.7.18
+
+# Install Maven: https://archive.apache.org/dist/maven/maven-3/
+
+# Get source code
+$ wget https://downloads.apache.org/ranger/2.0.0/apache-ranger-2.0.0.tar.gz
+$ tar -xvf apache-ranger-2.0.0.tar.gz
+$ cd apache-ranger-2.0.0
+
+# Build source code, it will output the ranger-2.0.0-admin.tar.gz in this repository in target/ folder
+$ mvn clean compile package install assembly:assembly -Dmaven.test.skip=true -Drat.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dspotbugs.skip=true -Dcheckstyle.skip=true
+```
+
 ## Ranger Admin
 
 ```bash
-# Install MySQL in your localhost
-$ brew install mysql
-$ brew services start mysql
 
 # Clone repository
 $ git clone https://github.com/lam1051999/ranger_build_output.git
@@ -65,8 +88,7 @@ RANGER_PID_DIR_PATH=$PWD/var/run/ranger
 # Comment setup user/group because it is currently compatible with Linux
 $ vi setup.sh # then comment #setup_unix_user_group
 
-# Install python 2 because setup scripts run python2
-$ pyenv install 2.7.18
+# Setup scripts run python2
 $ pyenv local 2.7.18
 
 # After updating the required properties, run setup.sh
