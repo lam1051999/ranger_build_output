@@ -93,23 +93,29 @@ SOLR_GROUP=<your_mac_group>
 
 SOLR_INSTALL=true
 
-JAVA_HOME=$JAVA_HOME
+JAVA_HOME=<your_java_home>
 SOLR_DOWNLOAD_URL=http://archive.apache.org/dist/lucene/solr/5.2.1/solr-5.2.1.tgz
 
-SOLR_INSTALL_FOLDER=$PWD/data/solr
-SOLR_RANGER_HOME=$PWD/data/solr/ranger_audit_server
-SOLR_RANGER_DATA_FOLDER=$PWD/data/solr/ranger_audit_server/data
-SOLR_LOG_FOLDER=$PWD/var/log/solr/ranger_audits
+SOLR_INSTALL_FOLDER=<your_prefix_folder>/data/solr
+SOLR_RANGER_HOME=<your_prefix_folder>/data/solr/ranger_audit_server
+SOLR_RANGER_DATA_FOLDER=<your_prefix_folder>/data/solr/ranger_audit_server/data
+SOLR_LOG_FOLDER=<your_prefix_folder>/var/log/solr/ranger_audits
+
+# Setup directory
+$ mkdir -p <SOLR_INSTALL_FOLDER>
 
 # Setup scripts run python2
 $ pyenv local 2.7.18
 
 # After updating the required properties, run setup.sh
-$ ./setup.sh
+$ sudo ./setup.sh
+
+# Instructions for start/stop Solr
+$ cat <SOLR_RANGER_HOME>/install_notes.txt
 
 # Start Solr
-$ ~/ranger-2.0.0-admin/contrib/solr_for_audit_setup/data/solr/ranger_audit_server/start_solr.sh
+$ ~/ranger-2.0.0-admin/contrib/solr_for_audit_setup/data/solr/ranger_audit_server/scripts/start_solr.sh
 
 # Stop Solr
-$ ~/ranger-2.0.0-admin/contrib/solr_for_audit_setup/data/solr/ranger_audit_server/stop_solr.sh
+$ ~/ranger-2.0.0-admin/contrib/solr_for_audit_setup/data/solr/ranger_audit_server/scripts/stop_solr.sh
 ```
