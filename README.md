@@ -31,7 +31,7 @@ $ mv mysql-connector-java-8.0.26/mysql-connector-java-8.0.26.jar mysql-connector
 
 # Now we are ready to edit Ranger configurations
 $ vi install.properties
-SQL_CONNECTOR_JAR=$PWD/mysql-connector-java.jar
+SQL_CONNECTOR_JAR=~/ranger-2.0.0-admin/mysql-connector-java.jar
 
 db_name=ranger
 db_user=admin
