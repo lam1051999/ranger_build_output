@@ -1,5 +1,5 @@
 
-# Installation on MacOS M1
+# Installation on MacOS M1/M2
 
 ## Ranger Admin
 
