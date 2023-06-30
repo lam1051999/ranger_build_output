@@ -64,8 +64,17 @@ $ ./setup.sh
 # Once above installation is successful, we are ready to start ranger admin service
 $ ews/ranger-admin-services.sh start
 
+# Check logs
+$ tail -100f ews/logs/access_log.*
+$ tail -100f ews/logs/catalina.out
+$ tail -100f ews/logs/ranger-admin-*.log
+
+# Access ranger admin ui, go to http://localhost:6080 and add some policies, user/password = admin/YourPassword@123456. Test some APIs
+$ curl -ivk -H "Content-type:application/json" -u admin:YourPassword@123456 -X GET "http://localhost:6080/service/plugins/policies" # to get all policies
+$ curl -ivk -H "Content-type:application/json" -u admin:YourPassword@123456 -X GET "http://localhost:6080/service/plugins/policies/download/dev_hive" # to get specific policy by service name
+
 # Stop ranger admin
-$ ews/ranger-admin-services.sh stop
+$ ews/ranger-admin-services.sh stop 
 ```
 
 ## Solr for audits
