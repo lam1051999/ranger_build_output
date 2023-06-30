@@ -62,12 +62,12 @@ $ pyenv local 2.7.18
 $ ./setup.sh
 
 # Once above installation is successful, we are ready to start ranger admin service
-$ ews/ranger-admin-services.sh start
+$ ~/ranger-2.0.0-admin/ews/ranger-admin-services.sh start
 
 # Check logs
-$ tail -100f ews/logs/access_log.*
-$ tail -100f ews/logs/catalina.out
-$ tail -100f ews/logs/ranger-admin-*.log
+$ tail -100f ~/ranger-2.0.0-admin/ews/logs/access_log.*
+$ tail -100f ~/ranger-2.0.0-admin/ews/logs/catalina.out
+$ tail -100f ~/ranger-2.0.0-admin/ews/logs/ranger-admin-*.log
 
 # Access ranger admin ui, go to http://localhost:6080 and add some policies, user/password = admin/YourPassword@123456. Test some APIs
 # Configure policy with
@@ -79,7 +79,7 @@ $ curl -ivk -H "Content-type:application/json" -u admin:YourPassword@123456 -X G
 $ curl -ivk -H "Content-type:application/json" -u admin:YourPassword@123456 -X GET "http://localhost:6080/service/plugins/policies/download/dev_hive" # to get specific policy by service name
 
 # Stop ranger admin
-$ ews/ranger-admin-services.sh stop 
+$ ~/ranger-2.0.0-admin/ews/ranger-admin-services.sh stop 
 ```
 
 ## Solr for audits
