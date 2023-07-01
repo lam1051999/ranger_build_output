@@ -43,9 +43,9 @@ $ mvn clean compile package install assembly:assembly -Dmaven.test.skip=true -Dr
 ```bash
 
 # Clone repository
+$ git lfs install
 $ git clone https://github.com/lam1051999/ranger_build_output.git
 $ cd ranger_build_output
-$ git lfs install
 $ cp ranger-2.0.0-admin.tar.gz ~
 $ cd ~
 $ tar -xvf ranger-2.0.0-admin.tar.gz
